@@ -18,7 +18,7 @@ A PocketMine-MP virion to execute PDO statements async using [Medoo](https://git
 ```
 
 ## Using the [AsyncExecutor](https://github.com/J1b1x/AsyncMedoo/blob/master/src/Jibix/AsyncMedoo/AsyncExecuter.php)
-### Instead of manually starting an async task, you can simply use the [async]() function, which automatically executes the provided task in the [AsyncExecutor](https://github.com/J1b1x/AsyncMedoo/blob/master/src/Jibix/AsyncMedoo/AsyncExecuter.php)
+### Instead of manually starting an async task, you can simply use the [async](https://github.com/J1b1x/AsyncMedoo/blob/ec3e541b9c6c55ef343d1f417bf0c1f62d2500bc/src/Jibix/AsyncMedoo/util/Functions.php#L10) function, which automatically executes the provided task in the [AsyncExecutor](https://github.com/J1b1x/AsyncMedoo/blob/master/src/Jibix/AsyncMedoo/AsyncExecuter.php)
 ```php
 private function dumpCoins(string $playerName): void{
     \Jibix\AsyncMedoo\util\async(
