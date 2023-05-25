@@ -1,0 +1,6 @@
+name: "AsyncMedoo"
+version: 1.0
+api: 4.0.0
+antigen: Jibix\AsyncMedoo
+author: "Jibix"
+description: "A library that allows you to execute PDO statements async using Medoo"
