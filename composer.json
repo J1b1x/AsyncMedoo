@@ -1,0 +1,20 @@
+{
+    "name": "j1b1x/asyncmedoo",
+    "autoload": {
+        "psr-4": {
+            "Jibix\\AsyncMedoo\\": "src/Jibix/AsyncMedoo"
+        }
+    },
+    "authors": [
+        {
+            "name": "Jibix",
+            "homepage": "https://github.com/J1b1x"
+        }
+    ],
+    "require": {
+        "catfan/medoo": "^2.1.9"
+    },
+    "require-dev": {
+        "pocketmine/pocketmine-mp": "^4.20"
+    }
+}
