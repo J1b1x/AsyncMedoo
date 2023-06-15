@@ -20,7 +20,7 @@ final class AsyncExecutor{
         $credentials ??= AsyncMedoo::getCredentials();
         if (!Server::getInstance()->isRunning()) {
             $result = (new ReflectionFunction($task))->getNumberOfParameters() == 0 ? ($task)() : ($task)($credentials->createConnection());
-            if (!is_object($result)) ($onComplete)($result);
+            if ($onComplete !== null && !is_object($result)) ($onComplete)($result);
             return;
         }
         $credentials = json_encode($credentials);
