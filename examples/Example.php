@@ -13,19 +13,9 @@ class Example{
         //Creating table
         $connection = AsyncMedoo::getCredentials()->createConnection();
         $connection->create(self::TABLE, [
-            "name" => [
-                "VARCHAR(32)",
-                "NOT NULL",
-                "PRIMARY KEY",
-            ],
-            "kills" => [
-                "INTEGER(10)",
-                "NOT NULL"
-            ],
-            "deaths" => [
-                "INTEGER(10)",
-                "NOT NULL"
-            ]
+            "name" => ["VARCHAR(32)", "NOT NULL", "PRIMARY KEY"],
+            "kills" => ["INTEGER(10)",  "NOT NULL"],
+            "deaths" => [  "INTEGER(10)", "NOT NULL"]
         ]);
         $connection->pdo = null;
     }
