@@ -15,7 +15,7 @@ class Example{
         $connection->create(self::TABLE, [
             "name" => ["VARCHAR(32)", "NOT NULL", "PRIMARY KEY"],
             "kills" => ["INTEGER(10)",  "NOT NULL"],
-            "deaths" => [  "INTEGER(10)", "NOT NULL"]
+            "deaths" => ["INTEGER(10)", "NOT NULL"]
         ]);
         $connection->pdo = null;
     }
