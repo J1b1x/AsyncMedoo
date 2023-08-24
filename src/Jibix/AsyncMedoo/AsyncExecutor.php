@@ -25,7 +25,7 @@ final class AsyncExecutor{
         }
         $credentials = json_encode($credentials);
         async(new AsyncClosureTask(
-            function () use ($task, $credentials): mixed{
+            static function () use ($task, $credentials): mixed{
                 if ((new ReflectionFunction($task))->getNumberOfParameters() == 0) {
                     $result = ($task)();
                 } else {
@@ -34,7 +34,7 @@ final class AsyncExecutor{
                 }
                 return $result;
             },
-            function (mixed $result, array $locals): void{
+            static function (mixed $result, array $locals): void{
                 if (!$locals) return;
                 ($locals["onComplete"])($result);
             },
