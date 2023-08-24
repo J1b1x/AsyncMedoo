@@ -1,7 +1,7 @@
 # AsyncMedoo
 
 ![php](https://img.shields.io/badge/php-8.0-informational)
-![api](https://img.shields.io/badge/pocketmine-4.0-informational)
+![api](https://img.shields.io/badge/pocketmine-5.0-informational)
 
 A PocketMine-MP virion to execute PDO statements async using [Medoo](https://github.com/catfan/Medoo/)
 

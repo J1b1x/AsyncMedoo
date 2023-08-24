@@ -15,6 +15,6 @@
         "catfan/medoo": "^2.1.9"
     },
     "require-dev": {
-        "pocketmine/pocketmine-mp": "^4.20"
+        "pocketmine/pocketmine-mp": "^5.0"
     }
 }
