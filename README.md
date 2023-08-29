@@ -5,8 +5,8 @@
 
 A PocketMine-MP virion to execute PDO statements async using [Medoo](https://github.com/catfan/Medoo/)
 
-## Initialization
-### First you need to initialize the MySQL credentials, so just do:
+### Initialization
+First you need to initialize the MySQL credentials, so just do:
 ```php
 \Jibix\AsyncMedoo\AsyncMedoo::initialize(new \Jibix\AsyncMedoo\MySQLCredentials(
     "database",
@@ -17,8 +17,8 @@ A PocketMine-MP virion to execute PDO statements async using [Medoo](https://git
 ));
 ```
 
-## Using the [AsyncExecutor](https://github.com/J1b1x/AsyncMedoo/blob/master/src/Jibix/AsyncMedoo/AsyncExecutor.php)
-### Instead of manually starting an async task, you can simply use the [async](https://github.com/J1b1x/AsyncMedoo/blob/ec3e541b9c6c55ef343d1f417bf0c1f62d2500bc/src/Jibix/AsyncMedoo/util/Functions.php#L10) function, which automatically executes the provided task in the [AsyncExecutor](https://github.com/J1b1x/AsyncMedoo/blob/master/src/Jibix/AsyncMedoo/AsyncExecutor.php)
+### Using the [AsyncExecutor](https://github.com/J1b1x/AsyncMedoo/blob/master/src/Jibix/AsyncMedoo/AsyncExecutor.php)
+Instead of manually starting an async task, you can simply use the [async](https://github.com/J1b1x/AsyncMedoo/blob/ec3e541b9c6c55ef343d1f417bf0c1f62d2500bc/src/Jibix/AsyncMedoo/util/Functions.php#L10) function, which automatically executes the provided task in the [AsyncExecutor](https://github.com/J1b1x/AsyncMedoo/blob/master/src/Jibix/AsyncMedoo/AsyncExecutor.php)
 ```php
 private function dumpCoins(string $playerName): void{
     \Jibix\AsyncMedoo\util\async(
