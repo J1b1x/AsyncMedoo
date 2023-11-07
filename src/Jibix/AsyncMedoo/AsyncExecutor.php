@@ -1,7 +1,7 @@
 <?php
 namespace Jibix\AsyncMedoo;
 use Closure;
-use Jibix\AsyncMedoo\task\AsyncClosureTask;
+use Jibix\AsyncMedoo\task\AsyncExecuteTask;
 use pocketmine\Server;
 use ReflectionFunction;
 use function Jibix\AsyncMedoo\util\async;
@@ -23,23 +23,6 @@ final class AsyncExecutor{
             if ($onComplete !== null && !is_object($result)) ($onComplete)($result);
             return;
         }
-        $credentials = json_encode($credentials);
-        async(new AsyncClosureTask(
-            static function () use ($task, $credentials): mixed{
-                if ((new ReflectionFunction($task))->getNumberOfParameters() == 0) {
-                    $result = ($task)();
-                } else {
-                    $result = ($task)($medoo = MySQLCredentials::fromString($credentials)->createConnection());
-                    $medoo->pdo = null;
-                }
-                return $result;
-            },
-            static function (mixed $result, array $locals): void{
-                if (!$locals) return;
-                ($locals["onComplete"])($result);
-            },
-            $onError,
-            $onComplete === null ? [] : ["onComplete" => $onComplete]
-        ));
+        async(new AsyncExecuteTask($credentials, $task, $onComplete, $onError));
     }
 }
