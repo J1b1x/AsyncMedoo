@@ -24,8 +24,8 @@ class AsyncExecuteTask extends AsyncTask{
         ?Closure $onError = null,
     ){
         $this->credentials = json_encode($credentials);
-        $this->storeLocal("onComplete", $onComplete);
-        $this->storeLocal("onError", $onError);
+        $this->storeLocal("onComplete", $onComplete ?? fn () => null); //would throw an exception if $onComplete was null
+        $this->storeLocal("onError", $onError ?? fn () => null);
     }
 
     public function onRun(): void{
