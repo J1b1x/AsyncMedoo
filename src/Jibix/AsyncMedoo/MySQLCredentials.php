@@ -60,7 +60,7 @@ class MySQLCredentials implements JsonSerializable{
         ]);
     }
 
-    public function jsonSerialize(): array{
+    public function __toArray(): array{
         return [
             "database" => $this->database,
             "password" => $this->password,
@@ -70,14 +70,21 @@ class MySQLCredentials implements JsonSerializable{
         ];
     }
 
-    public static function fromString(string $string): self{
-        $data = json_decode($string, true);
+    public static function fromArray(array $array): self{
         return new self(
-            $data["database"],
-            $data["password"],
-            $data["user"] ?? "root",
-            $data["address"] ?? "127.0.0.1",
-            $data["port"] ?? 3306,
+            $array["database"],
+            $array["password"],
+            $array["user"] ?? "root",
+            $array["address"] ?? "127.0.0.1",
+            $array["port"] ?? 3306,
         );
+    }
+
+    public function jsonSerialize(): array{
+        return $this->__toArray();
+    }
+
+    public static function fromString(string $string): self{
+        return self::fromArray(json_decode($string, true));
     }
 }

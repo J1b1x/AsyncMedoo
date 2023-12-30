@@ -1,6 +1,6 @@
 <?php
 namespace Jibix\AsyncMedoo;
-use Exception;
+use LogicException;
 
 
 /**
@@ -25,6 +25,6 @@ class AsyncMedoo{
      * @throws Exception
      */
     public static function getCredentials(): MySQLCredentials{
-        return self::$credentials ?? throw new Exception("The MySQL credentials are not initialized yet!");
+        return self::$credentials ?? throw new LogicException("The MySQL credentials have not been initialized yet");
     }
 }
